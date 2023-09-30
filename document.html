@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <script>
+     let stu=new Map();
+     function save_stu()
+     {
+        let status=document.getElementById('status')
+        stu.set(k.value,v.value);
+        status.innerHTML='RECORD INSERTED';
+        show_stu();
+     }
+     function show_stu()
+        {
+         let data="<table border='2'>";
+         data+="<tr><th>key</th><th>value</th></tr>";
+
+         stu.forEach(function(v,k)
+           {
+             data+="<tr><td>"+k+"</td><td>"+v+"</td><td><a href=javascript:del_stu('"+k+"')>delete</a></td></tr>";
+            })
+            data+="</table>"
+            document.getElementById('result').innerHTML=data;
+        }
+        function del_stu(k)
+        {
+            let status=document.getElementById('status')
+            stu.delete(k)
+            status.innerHTML='RECORD IS DELETED';
+            show_stu()
+        }
+    </script>
+        <center>
+            <div class="container2">
+                <embed src="Start Game.mp3" loop="true" autostart="true" width="2"
+                height="0">
+                 <div class="start1">
+                     enter name:<input type="text" id="k" placeholder="ENTER NAME" required><br>
+                     enter age:<input type="number" id="v"  placeholder="ENTER AGE"> <br>
+                     <button type="button"  onclick="save_stu()">ADD ACCOUNT</button><br>  
+                     <div id="status" style="color:red"></div>
+                     <div id="result"></div>
+                     <a href="game.html">Ok</a>
+                    </div>>
+           </div>
+    </body>
+</html>
